@@ -1,0 +1,42 @@
+{
+	=:1
+	0 ==
+	? 1 : ( 
+		1:=
+		1 ==
+		? 1 : (
+			1:=
+			1 -
+			fact
+			1:!
+			1:=
+			*
+		      )
+	      )
+	
+}fact
+
+!!
+#
+1
+!=
+? ( "Wrong arguments number" print "\n" print 0 exit )
+=:1
+0
+<=
+? ( "Not a positive number" print "\n" print 0 exit )
+1:=
+=:1
+20
+>
+? ( "Overflow" print "\n" print 0 exit)
+1:=
+eval
+fact
+=:1
+0
+==
+? ( "Overflow" print "\n" print 0 exit )
+1:=
+print
+"\n" print
