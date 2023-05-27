@@ -22,8 +22,16 @@
 !=
 ? ( "Wrong arguments number" print "\n" print 0 exit )
 =:1
+"0"
+!=
+1:=
 0
-<=
+==
+&&
+1:=
+0
+<
+||
 ? ( "Not a positive number" print "\n" print 0 exit )
 1:=
 =:1

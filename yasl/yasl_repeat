@@ -18,6 +18,8 @@
 ? ( "Not positive number" print "\n" print 0 exit )
 1:=
 eval
+1
+/
 #
 1
 -
