@@ -1,2 +1,53 @@
-!!
+{
+	1
+	@ (
+		5:=
+		2:=
+		]#[
+		=:3
+		1:=
+		==
+		? ( 
+			6:=
+			0
+			==
+			2:=
+			4:=
+			1
+			-
+			<
+			&&
+			? ("\n" print 1:6)
+		   ) : (
+					3:=
+					print
+					6:!
+					0:6
+			)
+		1:2
+		2:+:2
+		2:=
+		4:=
+		<
+	  )
+}print_split
 
+!!
+#
+2
+!=
+? ( "Wrong number of aguments" print "\n" print 0 exit )
+[#]
+1
+!=
+? ( "Wrong separator" print "\n" print 0 exit )
+=:1
+!
+[#]
+=:4
+!
+=:5
+1:6
+0:2
+print_split
+"\n" print
