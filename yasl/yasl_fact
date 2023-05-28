@@ -39,7 +39,7 @@
 [#]
 3
 >=
-? ( "Not a positive number\n" print 0 exit)
+? ( "Not a positive number or number too big\n" print 0 exit)
 1:=
 20
 >
