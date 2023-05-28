@@ -1,0 +1,58 @@
+#!yasl
+
+!!
+#
+2
+!=
+? ( "Wrong number of aguments\n" print 0 exit )
+[#]
+1
+!=
+? ( "Wrong separator\n" print 0 exit )
+=:1 // separator
+!
+[#]
+=:3 // string size
+!
+=:4 // string
+0:5 // printed \n
+0:2 // incrementer
+3:=
+2:=
+>
+@ (
+	2:=
+	]#[
+	=:6 // current char
+	1:=
+	==
+	5:=
+	&&
+	? ( "\n" print 0:5 ) : (
+		6:=
+		1:=
+		!=
+		? ( 1:5 6:= print 6:! )
+	)
+	4:=
+	1:2
+	2:+:2
+	3:=
+	2:=
+	>
+)
+5:=
+1
+==
+? ("\n" print)
+
+
+
+
+
+
+
+
+
+
+

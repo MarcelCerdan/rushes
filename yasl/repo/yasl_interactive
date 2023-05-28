@@ -1,0 +1,11 @@
+#!yasl
+
+
+#!
+read
+@ (
+	eval
+	read
+	0
+	!=
+)

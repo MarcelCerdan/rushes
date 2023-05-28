@@ -1,0 +1,28 @@
+#!yasl
+
+{
+	=:1
+	#(=:2 print 2:=)
+	!
+	"\n" print
+	2:!
+	1:=
+}print_n_args
+
+!!
+#
+2
+<
+? ( "Too few arguments" print "\n" print 0 exit )
+(=:1
+0
+<= 1:=:0 9999999 > ||
+)? ( "Wrong amount entered\n" print 0 exit )
+1:=
+eval
+1
+/
+#
+1
+-
+#(print_n_args 1 +)
