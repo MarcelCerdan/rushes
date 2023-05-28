@@ -8,7 +8,7 @@
 [#]
 1
 !=
-? ( "Wrong separatori\n" print 0 exit )
+? ( "Wrong separator\n" print 0 exit )
 =:1 // separator
 !
 [#]
