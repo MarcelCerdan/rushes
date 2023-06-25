@@ -19,7 +19,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define DICTIONARY "data/words.txt"
+#define DICTIONARY "data/test.txt"
 
 #define GREEN "\033[1;32m"
 #define YELLOW "\033[1;33m"
@@ -27,8 +27,11 @@
 
 char	*random_word();
 int		print_game(char *word);
-int		input(char *word);
+char	*input(char *word);
 void	string_toupper(char *str);
-int		check_double(char *input, int i);
+int		check_double(char *input, int i, int j, char *word);
+void	initialize_str(char **tab);
+char	*verify_letters(char *input, char *word);
+void	free_all(char **input, char **color, int max);
 
 #endif

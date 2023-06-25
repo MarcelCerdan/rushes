@@ -12,80 +12,72 @@
 #include "wordle.h"
 
 int	check_input(char *input, char *word);
-int	verify_letters(char *input, char *word);
 
-int	input(char *word)
+char	*input(char *word)
 {
 	char *input;
 
 	printf("Word : %s\n", word);
-	printf(" What is the 5 letters word ? : ");
+	printf(" What is the word ? : ");
 	scanf("%ms", &input);
 	while (check_input(input, word) == 1)
 	{
-		printf(" What is the 5 letters word ? : ");
+		printf(" What is the word ? : ");
 		scanf("%ms", &input);
 	}
-	return (0);
+	return (input);
 }
 
 int	check_input(char *input, char *word)
 {
 	size_t	len = 0;
-	char	*line;
+	char	*line = NULL;
 	FILE 	*fp;
 
 	errno = 0;
 	fp = fopen(DICTIONARY, "r");
 	string_toupper(input);
 	string_toupper(word);
-	if (!fp)
+	if (fp == NULL)
 		perror("check_input");
 	while (getline(&line, &len, fp) != -1)
 	{
 		string_toupper(line);
-		if (strncmp(input, line, 5) == 0)
-			return (verify_letters(input, word));
+		if (strncmp(input, line, 5) == 0 && strlen(input) == 5)
+			return (free(line), fclose(fp), 0);
 	}
-	printf(" Not in word list !\n\n");
+	free(line);
+	fclose(fp);
+	printf("\n Not in word list !\n\n");
 	return (1);
 }
 
-int	verify_letters(char *input, char *word)
+char	*verify_letters(char *input, char *word)
 {
-	int	i = 0;
-	int j = 0;
+	int 	j;
+	int		i = 0;
+	char	*color = malloc(sizeof(char) * 6);
 
-	printf("\n\n\n		");
-	while (input[i])
+	while (i < 5)
 	{
+		color[i] = 'b';
 		j = 0;
-		while (word[j])
+		while (j < 5)
 		{
 			if (input[i] == word[j])
 			{
 				if (i == j)
 				{
-					printf(GREEN);
-					printf("%c ", input[i]);
-					printf(RESET);
+					color[i] = 'g';
+					break ;
 				}
-				else if (check_double(input, i) == 0)
-				{
-					printf(YELLOW);
-					printf("%c ", input[i]);
-					printf(RESET);
-				}
-				else
-					printf("%c ", input[i]);
-				i++;
-				j = 0;
+				else if (check_double(input, i, j, word) == 0)
+					color[i] = 'y';
 			}
 			j++;
 		}
-		printf("%c ", input[i]);
 		i++;
 	}
-	printf("\n\n\n");
-	return (0);
+	color[i] = '\0';
+	return (color);
 }

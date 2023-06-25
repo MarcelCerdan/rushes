@@ -42,11 +42,11 @@ unsigned	check_dictionary()
 	FILE		*fp;
 	size_t		len = 0;
 	unsigned	line_nb;
-	char		*line;
+	char		*line = NULL;
 
 	errno = 0;
 	fp = fopen(DICTIONARY, "r");
-	if (!fp)
+	if (fp == NULL)
 		perror("check_dictionary");
 	line_nb = 0;
 	while (getline(&line, &len, fp) != -1)
@@ -59,12 +59,13 @@ unsigned	check_dictionary()
 			exit(0);
 		}
 	}
+	fclose(fp);
 	if (line_nb == 0)
 	{
 		printf("Dictionary is empty\n");
+		free(line);
 		exit(0);
 	}
-	fclose(fp);
 	return (free(line), line_nb);
 }
 
@@ -72,7 +73,7 @@ char *find_word(unsigned nb)
 {
 	FILE		*fp;
 	size_t		len = 0;
-	char		*line;
+	char		*line = NULL;
 	unsigned	line_nb;
 
 	errno = 0;
@@ -85,5 +86,6 @@ char *find_word(unsigned nb)
 		line_nb++;
 		getline(&line, &len, fp);
 	}
+	fclose(fp);
 	return (line);
 }
