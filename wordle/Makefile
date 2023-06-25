@@ -22,6 +22,10 @@ INC_DIR = incl/
 
 #### SOURCE FILES ####
 SRCS =	main.c \
+		parsing/parsing_dictionnary.c \
+		game/game.c \
+		game/input.c \
+		game/utils.c \
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
@@ -51,7 +55,6 @@ $(OBJS_DIR)%.o:		$(SRC_DIR)%.c
 					$(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
-			$(MAKE) clean -C $(LIB_DIR)
 			$(RM) $(OBJS_DIR) $(DEPS)
 
 fclean:		clean
